@@ -5,9 +5,19 @@ LABEL title=mingw-w64
 LABEL version=1.0
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get -y update && \
+RUN apt-get -y update && apt-get -y upgrade && \
     apt-get install -y --no-install-recommends apt-utils && \
+    apt-get -y update && \
     apt-get -y install \
-    #build-essential \
-    mingw-w64 && \
+    make \
+    libtool \
+    m4 \
+    pkg-config \ 
+    tcl \
+    texinfo\
+    autotools-dev \
+    autoconf \
+    git \ 
+    mingw-w64 \
+    wine && \
     apt-get clean
